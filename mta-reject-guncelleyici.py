@@ -151,7 +151,7 @@ def main():
         msg = MIMEText(fp.read())
         msg['Subject'] = POSTFIX_SERVER_NAME + ' reject domain script log' + log_file_name
         msg['From'] = 'admin@tubitak.gov.tr'
-        msg['To'] = 'sdestek@tubitak.gov.tr'
+        msg['To'] = 'eposta@tubitak.gov.tr'
         s = smtplib.SMTP(SMTP_SERVER_NAME)
         s.sendmail(msg['From'] ,msg['To'],msg.as_string())
         fp.close()
