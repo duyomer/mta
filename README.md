@@ -5,4 +5,4 @@ Sunucu servisini yeniden başlatır.
 SSH ile sisteme parolasız giriş için sertifikaların oluşturtulmasına ihtiyaç var.
 
 Kullanım:
-  mta-reject-guncelleyici.py <mta_sunucu>
+  mta-reject-guncelleyici.py <mta_sunucu> <opsiyonel: engellenecek domain adi>
