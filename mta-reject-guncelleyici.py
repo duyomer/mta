@@ -93,7 +93,9 @@ def main():
     USOM_ZARARLILAR = 'https://www.usom.gov.tr/url-list.xml'
     POSTFIX_SERVER_NAME = 'mta01'
     REMOTE_REJECT_FILE = '/opt/zimbra/postfix/conf/reject'
-    SMTP_SERVER_NAME = 'mail.bilgi.tubitak.gov.tr'
+    SMTP_SERVER_NAME = 'Domain.com'
+    FROM_ADDRESS = 'from@domain.com'
+    TO_ADDRESS = 'to@domain.com'
     SSH_PORT = 22
     CMD1 = 'sudo su - zimbra -c "/opt/zimbra/postfix/sbin/postmap ' + REMOTE_REJECT_FILE + '"'
     CMD2 = 'sudo su - zimbra -c  "/opt/zimbra/bin/zmmtactl stop" && sudo su - zimbra -c  "/opt/zimbra/bin/zmmtactl start"'
@@ -150,8 +152,8 @@ def main():
         #send results to smtp server
         msg = MIMEText(fp.read())
         msg['Subject'] = POSTFIX_SERVER_NAME + ' reject domain script log' + log_file_name
-        msg['From'] = 'admin@tubitak.gov.tr'
-        msg['To'] = 'eposta@tubitak.gov.tr'
+        msg['From'] = FROM_ADDRESS
+        msg['To'] = TO_ADDRESS
         s = smtplib.SMTP(SMTP_SERVER_NAME)
         s.sendmail(msg['From'] ,msg['To'],msg.as_string())
         fp.close()
